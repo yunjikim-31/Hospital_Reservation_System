@@ -1,3 +1,5 @@
+#include <string>
+using namespace std;
 #pragma once
 
 class Doctor
@@ -8,6 +10,8 @@ public:
     string sched[5] = { "예약 가능", "예약 가능", "예약 가능", "예약 가능", "예약 가능" };
 
     // 예약 일정 확정
-    void Schedule() { }
+    void schedule() {};
+
+    void printPatient() {};
 
 };

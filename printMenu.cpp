@@ -1,7 +1,5 @@
-#include <windows.h>      // 콘솔창 변경 API
-#include <stdio.h>
+#include "main.cpp"
 #pragma once
-using namespace std;
 
 // 글씨 흰색으로 만듦
 void TextColor(int color_number)

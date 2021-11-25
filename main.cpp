@@ -1,4 +1,6 @@
 #include "ClassCollection.h"
+#include "printMenu.cpp"
+#include "checkIdPw.cpp"
 #include <iostream>
 #include <stdio.h>
 #include <string>
@@ -9,15 +11,12 @@ using namespace std;
 // 의사 객체
 Doctor Sushma;
 
-int main() {
-    int dop;     // doctor or patient
-    int choice;
-    string choice1;
-    int choice2;
-    string name;
-    string password;
-    string ID;
-    int slot;
+int main() 
+{
+
+    int menuChoice = 0;
+    string docId = null;
+    string docPw = null;
 
     // 메뉴 반복용
     int flag = 1;
@@ -25,31 +24,53 @@ int main() {
     // 콘솔창의 이름 변경
     system("title 환자 예약 관리 프로그램");
     
+    // 의사 로그인 및 비밀번호 체크
+    checkIdAndPw();
+
     while (flag)
     {
-        cout << "1. 응급 환자 조회\n2. 예약 일정 확인 및 변경\n3. 환자 기록 열람\n";
-        cout << "\nPlease Enter your Choice : ";
-        cin >> dop;
+        // 메뉴 출력 함수 호출
+        PrintMenu();
+       
+        cin >> menuChoice;
 
-        switch (dop) {
-        case 1:     // for Doctors
-            cout << "\nWelcome, Doctor!\n\n";
-            cout << "Username : ";
-            cin >> name;
-            cout << "Password : ";
-            cin >> password;
-            cout << endl;
+        switch (menuChoice) 
+        {
+        case 1:
+            system("cls");
+            Sushma.schedule() // 응급환자 조회
+            break;
 
-            if ((name == "Sushma") && (password == "su1234")) {
-                Sushma.login(name, password);
-                cout << "Click 1 to view your Schedule\nClick 2 to write a Prescription\nClick 3 to write Notes\nClick 4 to view Patient Details\nClick 5 to View Prescription\nClick 6 to view Notes\nClick 7 to Logout\nClick 0 to Exit\n";
-                do {
-                    cout << "\nPlease Enter your Choice : ";
-                    cin >> choice;
-                    switch (choice) {
-                    case 1:
-                        Sushma.schedule();
-                        break;
+        case 2:
+            system("cls");
+            Sushma.schedule(); // 예약 일정 확인
+            break;
+
+        case 3:
+            system("cls");
+            changePT(head); // 환자 기록 열람
+            break;
+
+        case 4:  
+            system("cls"); // 종료하기
+            flag = 0;
+
+            printf("%c[1;36m", 27);      // 색 변경 코드, 민트색
+            printf("프로그램이 종료되었습니다.\n\n");
+            printf("%c[0m", 27);      //원래의 색으로 변경
+            break;
+
+        default:
+
+            system("cls");
+
+            printf("%c[1;31m", 27);      // 색 변경 코드, 빨간색
+            printf("1~ 4사이의 값을 넣어주세요.\n\n");
+            printf("%c[0m", 27);      //원래의 색으로 변경
+
+            system("pause");
+            break;
+
                     case 2:
                         cout << "Choose your Patient : ";
                         cin >> choice1;
@@ -72,96 +93,7 @@ int main() {
                             cout << "Please Enter the Correct Patient\'s Name\n";
                         }
                         break;
-                    case 3:
-                        cout << "Choose your Patient : ";
-                        cin >> choice1;
-                        if (choice1 == "pt1") {
-                            pt1.notes();
-                        }
-                        else if (choice1 == "pt2") {
-                            pt2.notes();
-                        }
-                        else if (choice1 == "pt3") {
-                            pt3.notes();
-                        }
-                        else if (choice1 == "pt4") {
-                            pt4.notes();
-                        }
-                        else if (choice1 == "pt5") {
-                            pt5.notes();
-                        }
-                        else {
-                            cout << "Please Enter the Correct Patient\'s Name\n";
-                        }
-                        break;
-                    case 4:
-                        cout << "Choose your Patient : ";
-                        cin >> choice1;
-                        if (choice1 == "pt1") {
-                            pt1.display();
-                        }
-                        else if (choice1 == "pt2") {
-                            pt2.display();
-                        }
-                        else if (choice1 == "pt3") {
-                            pt3.display();
-                        }
-                        else if (choice1 == "pt4") {
-                            pt4.display();
-                        }
-                        else if (choice1 == "pt5") {
-                            pt5.display();
-                        }
-                        else {
-                            cout << "Please Enter the Correct Patient\'s Name\n";
-                        }
-                        break;
-
-                    case 5:
-                        cout << "Choose your Patient : ";
-                        cin >> choice1;
-                        if (choice1 == "pt1") {
-                            pt1.display_prescription();
-                        }
-                        else if (choice1 == "pt2") {
-                            pt2.display_prescription();
-                        }
-                        else if (choice1 == "pt3") {
-                            pt3.display_prescription();
-                        }
-                        else if (choice1 == "pt4") {
-                            pt4.display_prescription();
-                        }
-                        else if (choice1 == "pt5") {
-                            pt5.display_prescription();
-                        }
-                        else {
-                            cout << "Please Enter the Correct Patient\'s Name\n";
-                        }
-                        break;
-
-                    case 6:
-                        cout << "Choose your Patient : ";
-                        cin >> choice1;
-                        if (choice1 == "pt1") {
-                            pt1.display_notes();
-                        }
-                        else if (choice1 == "pt2") {
-                            pt2.display_notes();
-                        }
-                        else if (choice1 == "pt3") {
-                            pt3.display_notes();
-                        }
-                        else if (choice1 == "pt4") {
-                            pt4.display_notes();
-                        }
-                        else if (choice1 == "pt5") {
-                            pt5.display_notes();
-                        }
-                        else {
-                            cout << "Please Enter the Correct Patient\'s Name\n";
-                        }
-                        break;
+     
 
                     case 7:
                         cout << "Logout Successful. Have a Great Day, Doctor!\n" << endl;
