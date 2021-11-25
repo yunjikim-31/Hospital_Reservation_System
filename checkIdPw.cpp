@@ -4,16 +4,17 @@
 #include "get.h"
 #include "parser.h"
 
-void inputIdAndPw()
+// ID, PW 안내 함수
+void guideIdAndPw()
 {
     system("cls");
 
     cout << "환자 예약 접속 시스템에 접속하신 것을 환영합니다.\n";
     cout << "의료진 검사를 위해 부여된 API 키, 아이디, 패스워드를 입력하세요.\n\n";
 
-	cout << endl;
 }
 
+// 데이터베이스로 연동, ID + PW 검사
 int checkIdAndPw()
 {
 
@@ -75,3 +76,4 @@ int checkIdAndPw()
 
 	return 0;
 }
+

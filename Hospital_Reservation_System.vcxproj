@@ -143,9 +143,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="checkIdPw.cpp" />
-    <ClCompile Include="ClassDefine.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="patientDisplayManage.cpp" />
     <ClCompile Include="printMenu.cpp" />
+    <ClCompile Include="printPatientSort.cpp" />
+    <ClCompile Include="scheduleManage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClassCollection.h" />

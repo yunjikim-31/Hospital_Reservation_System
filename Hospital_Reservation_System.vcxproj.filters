@@ -18,13 +18,19 @@
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="ClassDefine.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="printMenu.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="checkIdPw.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="printPatientSort.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="scheduleManage.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="patientDisplayManage.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
